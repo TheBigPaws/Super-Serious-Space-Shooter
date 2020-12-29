@@ -1,0 +1,38 @@
+ground texture:
+https://www.textures.com/download/snow0158/122090
+
+skybox:
+https://gamebanana.com/textures/1951
+
+stone:
+https://www.tilingtextures.com/stone-wall-with-mortar/
+
+wooden floor: 
+https://www.sketchuptextureclub.com/textures/architecture/wood-floors
+
+wooden wall:
+https://www.textures.com/browse/logs/77237 
+
+roof:
+https://www.sketchuptextureclub.com/textures/architecture/roofings/snowy-roofs/snowy-roof-texture-seamless-04030
+
+dark wood:
+https://www.myfreetextures.com/seamless-wood-texture/
+
+light wood:
+https://www.pinterest.com/pin/377317275003514941/
+
+brick wall:
+https://www.pinterest.com/pin/431078995573218874/
+
+Fire Spritesheet:
+https://www.pinterest.com/pin/520236194434048582/
+
+Rock object: 
+https://sketchfab.com/3d-models/rock-photogrammetry-scan-872fa4d23b04436ba476041bae68b46d
+
+Tree:
+https://sketchfab.com/3d-models/skovfogedegen-oak-tree-fd582b0d4a8c4af1a1b5c4f21a481c93
+
+Wooden Log:
+https://sketchfab.com/3d-models/log-1-f395536315344f40bdb37074a566ecdc

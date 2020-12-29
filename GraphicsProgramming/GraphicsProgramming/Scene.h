@@ -15,8 +15,14 @@
 // Further includes should go here:
 #include "SOIL.h"
 #include <vector>
-
-
+#include <stdlib.h>     /* srand, rand */
+#include <time.h> 
+//custom classes
+#include "Camera.h"
+#include "Skybox.h"
+#include "Structures.h"
+#include "FurnitureAndDetails.h"
+#include "Effects.h"
 class Scene{
 
 public:
@@ -40,7 +46,9 @@ protected:
 	void calculateFPS();
 
 	// draw primitive functions
-	
+
+	//custom functions for generating the island
+	void generate_island();
 
 	// For access to user input.
 	Input* input;
@@ -54,6 +62,11 @@ protected:
 	char fps[40];
 	char mouseText[40];
 
+	Skybox skybox;
+	Camera Camera;
+	Structures Structures;
+	Effects Effects;
+	FurnitureAndDetails FurnitureAndDetails;
 };
 
 #endif

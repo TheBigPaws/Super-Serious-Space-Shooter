@@ -1,5 +1,6 @@
 #include "Scene.h"
 
+
 // Scene constructor, initilises OpenGL
 // You should add further variables to need initilised.
 Scene::Scene(Input *in)
@@ -9,21 +10,26 @@ Scene::Scene(Input *in)
 	initialiseOpenGL();
 
 	// Other OpenGL / render setting should be applied here.
-	
-
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
 	// Initialise scene variables
+	
 	
 }
 
 void Scene::handleInput(float dt)
 {
 	// Handle user input
+	Camera.InputMovement(*input, dt, width, height);
 }
 
 void Scene::update(float dt)
 {
 	// update scene related variables.
-
+	glutWarpPointer(width / 2, height / 2);
+	Effects.incrementTime(dt);
 	// Calculate FPS for output
 	calculateFPS();
 }
@@ -36,11 +42,17 @@ void Scene::render() {
 	// Reset transformations
 	glLoadIdentity();
 	// Set the camera
-	gluLookAt(0.0f, 0.0f, 6.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	gluLookAt(Camera.position.x, Camera.position.y, Camera.position.z, Camera.lookat.x, Camera.lookat.y, Camera.lookat.z, Camera.up.x, Camera.up.y, Camera.up.z);
 	
 	// Render geometry/scene here -------------------------------------
-	
 
+	skybox.RenderSBOX(Camera.position.x, Camera.position.y, Camera.position.z);
+
+	FurnitureAndDetails.renderAll();
+
+	Structures.generateStructures();
+
+	Effects.renderFire();
 
 	// End render geometry --------------------------------------
 

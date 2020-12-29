@@ -144,14 +144,14 @@ void processMouseButtons(int button, int state, int x, int y)
 // Initialises Input and Scene class, prior to starting Main Loop.
 int main(int argc, char **argv) 
 {
-
 	// Init GLUT and create window
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA | GLUT_STENCIL);
 	//glutInitWindowPosition(100, 100);
 	glutInitWindowSize(1280, 720);
-	glutCreateWindow("My first triangle");
-	
+	glutCreateWindow("Snow Cottage");
+	//glutFullScreen();
+
 	// Register callback functions for change in size and rendering.
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
@@ -173,7 +173,7 @@ int main(int argc, char **argv)
 	// Position mouse in centre of windows before main loop (window not resized yet)
 	glutWarpPointer(400, 300);
 	// Hide mouse cursor
-	//glutSetCursor(GLUT_CURSOR_NONE);
+	glutSetCursor(GLUT_CURSOR_NONE);
 
 	// Initialise input and scene objects.
 	input = new Input();
