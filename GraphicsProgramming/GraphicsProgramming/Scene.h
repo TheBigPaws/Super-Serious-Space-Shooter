@@ -23,6 +23,7 @@
 #include "Structures.h"
 #include "FurnitureAndDetails.h"
 #include "Effects.h"
+#include "Lights.h"
 class Scene{
 
 public:
@@ -65,6 +66,7 @@ protected:
 	Skybox skybox;
 	Camera Camera;
 	Structures Structures;
+	Lights Lights;
 	Effects Effects;
 	FurnitureAndDetails FurnitureAndDetails;
 };

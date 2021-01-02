@@ -14,7 +14,7 @@ public:
 	void moveForward(float dt, float speed);
 	void InputMovement(Input& input, float dt, int width, int height);
 
-	Vector3 position = { 0.0f, 1.0f, 6.0f };
+	Vector3 position = { 0.0f, 4.0f, 10.0f };
 	Vector3 lookat = { 0.0f, 0.0f, 0.0f };
 	Vector3 up = { 0.0f, 1.0f, 0.0f };
 	//PITCH , YAW, ROLL

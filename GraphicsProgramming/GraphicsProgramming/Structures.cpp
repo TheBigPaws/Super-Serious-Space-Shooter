@@ -95,7 +95,7 @@ void Structures::generateStructures() {
 	BuildingFunctions::makeBlock(-2.8, 3.0, 4.8, 3.6, 4.0, 0.4, 4, LogWallTexture);
 	BuildingFunctions::makeBlock(2.8, 3.0, 4.8, 3.6, 4.0, 0.4, 4, LogWallTexture);
 	
-	//DOORTEMP
+	//DOORTEMP -------------------------------------------------------------------
 	glPushMatrix();
 	//open
 	//glTranslatef(1.5, 0.0, 5.8);
@@ -107,7 +107,7 @@ void Structures::generateStructures() {
 	BuildingFunctions::makeBlock(0, 3.0, 0.0, 2.0, 4.0, 0.2, 4, DoorTexture);
 	glPopMatrix();
 	
-	//PORCH COLLUMS & RAILINGS
+	//PORCH COLLUMS & RAILINGS -------------------------------------------------------------------
 	glColor3f(0.5f, 0.4f, 0.4f);
 
 	BuildingFunctions::makeBlock(4.79, 3.5, 8.79, 0.4, 5.4, 0.4, 2, lightwoodTexture);
@@ -125,8 +125,8 @@ void Structures::generateStructures() {
 	BuildingFunctions::makeBlock(4.8, 3.05, 6.8, 0.2, 0.1, 3.6, 2, lightwoodTexture);
 	BuildingFunctions::makeBlock(-4.8, 3.05, 6.8, 0.2, 0.1, 3.6, 2, lightwoodTexture);
 
-	BuildingFunctions::makeBlock(3.0, 3.05, 8.8, 4.0, 0.1, 0.2, 2, lightwoodTexture);
-	BuildingFunctions::makeBlock(-3.0, 3.05, 8.8, 4.0, 0.1, 0.2, 2, lightwoodTexture);
+	BuildingFunctions::makeBlock(2.9, 3.05, 8.8, 3.8, 0.1, 0.2, 2, lightwoodTexture);
+	BuildingFunctions::makeBlock(-2.9, 3.05, 8.8, 3.8, 0.1, 0.2, 2, lightwoodTexture);
 
 	glColor3f(1.0f, 1.0f, 1.0f);
 
@@ -177,7 +177,14 @@ void Structures::generateStructures() {
 
 	glDisable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
-	glColor4f(0.8, 0.8, 1.0, 0.35);
+	
+	glDisable(GL_COLOR_MATERIAL);
+
+	GLfloat wondowsAmbAndDIff[] = { 0.8, 0.8, 1.0, 0.35 };
+	GLfloat specularMat[] = { 1.0, 1.0, 1.0, 1.0 };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, wondowsAmbAndDIff);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specularMat);
+	glMateriali(GL_FRONT, GL_SHININESS, 100);
 
 	glBegin(GL_QUADS);
 
@@ -209,6 +216,5 @@ void Structures::generateStructures() {
 
 	glDisable(GL_BLEND);
 	glEnable(GL_TEXTURE_2D);
-
-	
+	glEnable(GL_COLOR_MATERIAL);
 }

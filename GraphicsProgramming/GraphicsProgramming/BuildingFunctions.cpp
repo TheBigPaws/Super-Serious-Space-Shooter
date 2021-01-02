@@ -171,3 +171,8 @@ void BuildingFunctions::makeTextTria(Vector3 vert1, Vector3 vert2, Vector3 vert3
 	glEnd();
 
 }
+
+void BuildingFunctions::makeCylinder(GLfloat MidPozX, GLfloat MidPozY, GLfloat MidPozZ, GLfloat radius, GLfloat sizeY, GLfloat, GLfloat scaleTXTvSIZE, GLuint texture) {
+
+
+}

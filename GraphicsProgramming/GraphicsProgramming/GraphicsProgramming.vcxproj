@@ -91,6 +91,7 @@
     <ClCompile Include="Effects.cpp" />
     <ClCompile Include="FurnitureAndDetails.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Lights.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModelsLoader.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="Effects.h" />
     <ClInclude Include="FurnitureAndDetails.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Lights.h" />
     <ClInclude Include="ModelsLoader.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Skybox.h" />

@@ -14,6 +14,7 @@ Scene::Scene(Input *in)
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
+	glEnable(GL_LIGHTING);
 	// Initialise scene variables
 	
 	
@@ -32,6 +33,10 @@ void Scene::update(float dt)
 	Effects.incrementTime(dt);
 	// Calculate FPS for output
 	calculateFPS();
+
+
+	Lights.calculate(dt);
+
 }
 
 void Scene::render() {
@@ -45,6 +50,8 @@ void Scene::render() {
 	gluLookAt(Camera.position.x, Camera.position.y, Camera.position.z, Camera.lookat.x, Camera.lookat.y, Camera.lookat.z, Camera.up.x, Camera.up.y, Camera.up.z);
 	
 	// Render geometry/scene here -------------------------------------
+	
+	Lights.renderLights();
 
 	skybox.RenderSBOX(Camera.position.x, Camera.position.y, Camera.position.z);
 
@@ -52,7 +59,7 @@ void Scene::render() {
 
 	Structures.generateStructures();
 
-	Effects.renderFire();
+	//Effects.renderEffects(Camera.position);
 
 	// End render geometry --------------------------------------
 
