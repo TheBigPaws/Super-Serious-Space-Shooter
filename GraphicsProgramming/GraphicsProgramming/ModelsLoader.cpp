@@ -31,9 +31,9 @@ void ModelsLoader::render()
 	// TODO: Need to add code here to render the loaded model
 	// How this is done is based on how you stored and sorted the data
 
-	glEnableClientState(GL_VERTEX_ARRAY);    //ENABLES A VERTEX ARRAY
-	glEnableClientState(GL_NORMAL_ARRAY);    //ENABLES A NORMAL ARRAY
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);    //ENABLES A TEXTURE COORDINATES ARRAY
+	glEnableClientState(GL_VERTEX_ARRAY);    
+	glEnableClientState(GL_NORMAL_ARRAY);    
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);    
 
 	glVertexPointer(3, GL_FLOAT, 0, vertex.data());
 	glNormalPointer(GL_FLOAT, 0, normals.data());
@@ -43,7 +43,7 @@ void ModelsLoader::render()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 	glBindTexture(GL_TEXTURE_2D, texture);
-	glDrawArrays(GL_TRIANGLES, 0, vertex.size() / 3);    //Accessing full arrays with a single function call
+	glDrawArrays(GL_TRIANGLES, 0, vertex.size() / 3);
 
 	glDisableClientState(GL_VERTEX_ARRAY);    //ALWAYS DISABLE ALL THE ARRAYS YOU ENABLED
 	glDisableClientState(GL_NORMAL_ARRAY);

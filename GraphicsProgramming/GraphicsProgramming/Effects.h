@@ -20,10 +20,12 @@ class Effects
 {
 private:
 	GLuint FireSpriteSheet;
-	float X_SSH, Y_SSH;
-	float timePassed;
+	float fire_X_SSH, fire_Y_SSH;
+	float nextFireFrame;
 	float spawnNewSmoke;
 	std::vector <smokeParticle> SmokeParts;
+	GLfloat fireGlowOn[4]{ 1.0f,1.0f,0.0f,1.0, };
+	GLfloat fireGlowOff[4]{ 0.0f,0.0f,0.0f,1.0, };
 public:
 	Effects();
 	void incrementTime(float dt);

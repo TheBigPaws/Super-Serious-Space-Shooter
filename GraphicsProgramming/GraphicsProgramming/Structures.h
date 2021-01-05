@@ -14,9 +14,11 @@ private:
 	GLuint darkwoodTexture;
 	GLuint lightwoodTexture;
 	GLuint brickWall;
-
+	GLfloat wondowsAmbAndDIff[4] = { 0.8, 0.8, 1.0, 0.35 };
+	GLfloat specularMat[4] = { 1.0, 1.0, 1.0, 1.0 };
 public:
 	Structures();
-	void generateStructures();
+	void generateStructures(int shadower);
+	void generateWindow();
 };
 

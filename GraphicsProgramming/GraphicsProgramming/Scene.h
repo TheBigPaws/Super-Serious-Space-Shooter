@@ -20,10 +20,13 @@
 //custom classes
 #include "Camera.h"
 #include "Skybox.h"
-#include "Structures.h"
-#include "FurnitureAndDetails.h"
+//#include "Structures.h"
+//#include "FurnitureAndDetails.h"
 #include "Effects.h"
 #include "Lights.h"
+#include "Shadow.h"
+#include "Door.h"
+#include <string>
 class Scene{
 
 public:
@@ -61,7 +64,7 @@ protected:
 	// For FPS counter and mouse coordinate output.
 	int frame = 0, time, timebase = 0;
 	char fps[40];
-	char mouseText[40];
+	char mouseText[60];
 
 	Skybox skybox;
 	Camera Camera;
@@ -69,6 +72,11 @@ protected:
 	Lights Lights;
 	Effects Effects;
 	FurnitureAndDetails FurnitureAndDetails;
+	Shadow Shadow;
+	GLuint snowTexture;
+	Door Door;
+	bool displayAll = true;
+	bool displayData = false;
 };
 
 #endif

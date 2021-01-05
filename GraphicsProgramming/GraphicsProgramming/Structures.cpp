@@ -54,26 +54,30 @@ Structures::Structures() {
 		SOIL_LOAD_AUTO,
 		SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
 	);
+
 }
 
 
-
-void Structures::generateStructures() {
+void Structures::generateStructures(int shadower) {
 
 
 	//SNOW GROUND -------------------------------------------------------------------
 	
-	BuildingFunctions::makeTextRect(Vector3(-20.0f, 0.0f, -20.0f), Vector3(-20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, -20.0f), Vector3(0.0f, 1.0f, 0.0f), 10.0f, 10.0f, snowTexture);
+	//BuildingFunctions::makeTextRect(Vector3(-20.0f, 0.0f, -20.0f), Vector3(-20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, -20.0f), Vector3(0.0f, 1.0f, 0.0f), 10.0f, 10.0f, snowTexture);
 
 	//COTTAGE FLOOR, STONE FOUNDATION & STAIRS  -------------------------------------------------------------------
-	glColor3f(0.7f, 0.8f, 0.8f);
+	if (shadower) {
+		glColor3f(0.7f, 0.8f, 0.8f);
+	}
 	BuildingFunctions::makeBlock(0, 0.49, 2, 10, 0.98, 14, 3, stoneTexture);
 	BuildingFunctions::makeBlock(0, 0.25, 9.25, 2, 0.5, 0.5, 3, stoneTexture);
-	glColor3f(0.7f, 0.6f, 0.6f); //slightly edit colour for more realism
+	if (shadower) {
+		glColor3f(0.7f, 0.6f, 0.6f); //slightly edit colour for more realism
+	}
 	BuildingFunctions::makeBlock(0, 0.99, 2, 10, 0.02, 14, 2, woodenFloorTexture);
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	
+	if (shadower) {
+		glColor3f(1.0f, 1.0f, 1.0f);
+	}
 	//WALLS -------------------------------------------------------------------
 	//back wall
 	BuildingFunctions::makeBlock(0, 4, -4.8, 9.2, 6, 0.4, 4, LogWallTexture);
@@ -95,21 +99,14 @@ void Structures::generateStructures() {
 	BuildingFunctions::makeBlock(-2.8, 3.0, 4.8, 3.6, 4.0, 0.4, 4, LogWallTexture);
 	BuildingFunctions::makeBlock(2.8, 3.0, 4.8, 3.6, 4.0, 0.4, 4, LogWallTexture);
 	
-	//DOORTEMP -------------------------------------------------------------------
-	glPushMatrix();
-	//open
-	//glTranslatef(1.5, 0.0, 5.8);
-	//glRotatef(-45.0f,0.0f,1.0f,0.0f);
+	//shelf on front wall
+	BuildingFunctions::makeBlock(2.8, 4.0, 4.1, 3.6, 0.2, 1.0, 4, darkwoodTexture);
 
-	//creaked
-	glTranslatef(0.0, 0.0, 5.2);
-	glRotatef(20.0f, 0.0f, 1.0f, 0.0f);
-	BuildingFunctions::makeBlock(0, 3.0, 0.0, 2.0, 4.0, 0.2, 4, DoorTexture);
-	glPopMatrix();
 	
 	//PORCH COLLUMS & RAILINGS -------------------------------------------------------------------
-	glColor3f(0.5f, 0.4f, 0.4f);
-
+	if (shadower) {
+		glColor3f(0.5f, 0.4f, 0.4f);
+	}
 	BuildingFunctions::makeBlock(4.79, 3.5, 8.79, 0.4, 5.4, 0.4, 2, lightwoodTexture);
 	BuildingFunctions::makeBlock(-4.79, 3.5, 8.79, 0.4, 5.4, 0.4, 2, lightwoodTexture);
 
@@ -128,10 +125,10 @@ void Structures::generateStructures() {
 	BuildingFunctions::makeBlock(2.9, 3.05, 8.8, 3.8, 0.1, 0.2, 2, lightwoodTexture);
 	BuildingFunctions::makeBlock(-2.9, 3.05, 8.8, 3.8, 0.1, 0.2, 2, lightwoodTexture);
 
-	glColor3f(1.0f, 1.0f, 1.0f);
-
+	if (shadower) {
+		glColor3f(1.0f, 1.0f, 1.0f);
+	}
 	//ROOF -------------------------------------------------------------------
-	glColor3f(1.0f, 1.0f, 1.0f);
 	//roof, shields and overhang
 	glPushMatrix();
 	glTranslatef(0, 8.55, 2.5);
@@ -168,20 +165,22 @@ void Structures::generateStructures() {
 	BuildingFunctions::makeBlock(-1.25, 2.5, -3.85, 0.5, 2.0, 1.5, 3, brickWall);
 	BuildingFunctions::makeBlock(0.0, 2.5, -4.5, 2.0, 2.0, 0.2, 3, brickWall);
 
-	//windows -------------------------------------------------------------------
+	//windows cross' -------------------------------------------------------------------
 	BuildingFunctions::makeBlock(4.8, 4.25, 0.0, 0.1, 2.5, 0.1, 4, LogWallTexture);
 	BuildingFunctions::makeBlock(4.8, 4.25, 0.0, 0.09, 0.1, 2.5, 4, LogWallTexture);
 
 	BuildingFunctions::makeBlock(-4.8, 4.25, 0.0, 0.1, 2.5, 0.1, 4, LogWallTexture);
 	BuildingFunctions::makeBlock(-4.8, 4.25, 0.0, 0.09, 0.1, 2.5, 4, LogWallTexture);
 
+	
+}
+
+void Structures::generateWindow() {
 	glDisable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
-	
+
 	glDisable(GL_COLOR_MATERIAL);
 
-	GLfloat wondowsAmbAndDIff[] = { 0.8, 0.8, 1.0, 0.35 };
-	GLfloat specularMat[] = { 1.0, 1.0, 1.0, 1.0 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, wondowsAmbAndDIff);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specularMat);
 	glMateriali(GL_FRONT, GL_SHININESS, 100);
@@ -217,4 +216,5 @@ void Structures::generateStructures() {
 	glDisable(GL_BLEND);
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_COLOR_MATERIAL);
+
 }

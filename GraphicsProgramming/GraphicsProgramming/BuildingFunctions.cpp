@@ -126,7 +126,7 @@ void BuildingFunctions::makeTextRect(Vector3 leftup, Vector3 leftdown, Vector3 r
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
 	glBegin(GL_QUADS);
-	//FRONT
+
 	glNormal3f(normal.x, normal.y, normal.z);
 	glTexCoord2f(0.0f, 0.0f);
 	glVertex3f(leftup.x, leftup.y, leftup.z);
@@ -169,10 +169,5 @@ void BuildingFunctions::makeTextTria(Vector3 vert1, Vector3 vert2, Vector3 vert3
 	glVertex3f(vert3.x, vert3.y, vert3.z);
 
 	glEnd();
-
-}
-
-void BuildingFunctions::makeCylinder(GLfloat MidPozX, GLfloat MidPozY, GLfloat MidPozZ, GLfloat radius, GLfloat sizeY, GLfloat, GLfloat scaleTXTvSIZE, GLuint texture) {
-
 
 }

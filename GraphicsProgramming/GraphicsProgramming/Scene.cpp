@@ -17,13 +17,43 @@ Scene::Scene(Input *in)
 	glEnable(GL_LIGHTING);
 	// Initialise scene variables
 	
-	
+	snowTexture = SOIL_load_OGL_texture(
+		"gfx/Snow_ground.png",
+		SOIL_LOAD_AUTO,
+		SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+	);
+	glEnable(GL_LIGHT2);
+	glEnable(GL_LIGHT0); 
 }
 
 void Scene::handleInput(float dt)
 {
 	// Handle user input
 	Camera.InputMovement(*input, dt, width, height);
+
+	if (input->isKeyDown('p')) {
+		Door.switchOpen();
+		input->setKeyUp('p');
+	}
+	if (input->isKeyDown('l')) {
+		Lights.changeOutsideLight();
+		skybox.changeOutsideLight();
+		input->setKeyUp('l');
+	}
+	if (input->isKeyDown('o')) {
+		if (displayAll == true) {
+			displayAll = false;
+		}
+		else { displayAll = true; }
+		input->setKeyUp('o');
+	}
+	if (input->isKeyDown('k')) {
+		if (displayData == true) {
+			displayData = false;
+		}
+		else { displayData = true; }
+		input->setKeyUp('k');
+	}
 }
 
 void Scene::update(float dt)
@@ -34,7 +64,7 @@ void Scene::update(float dt)
 	// Calculate FPS for output
 	calculateFPS();
 
-
+	Door.incrementDT(dt);
 	Lights.calculate(dt);
 
 }
@@ -55,11 +85,21 @@ void Scene::render() {
 
 	skybox.RenderSBOX(Camera.position.x, Camera.position.y, Camera.position.z);
 
-	FurnitureAndDetails.renderAll();
+	BuildingFunctions::makeTextRect(Vector3(-20.0f, 0.0f, -35.0f), Vector3(-20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, -35.0f), Vector3(0.0f, 1.0f, 0.0f), 10.0f, 10.0f, snowTexture);
 
-	Structures.generateStructures();
+	Shadow.generateOutsideShadows(displayAll);
 
-	//Effects.renderEffects(Camera.position);
+	Structures.generateStructures(1);
+
+	Door.renderDoor();
+	
+	FurnitureAndDetails.renderLog();
+
+	Effects.renderEffects(Camera.position);
+
+	FurnitureAndDetails.renderAll(Camera.position, displayAll);
+	
+	Structures.generateWindow();
 
 	// End render geometry --------------------------------------
 
@@ -130,10 +170,20 @@ void Scene::calculateFPS()
 // Compiles standard output text including FPS and current mouse position.
 void Scene::renderTextOutput()
 {
-	// Render current mouse position and frames per second.
-	sprintf_s(mouseText, "Mouse: %i, %i", input->getMouseX(), input->getMouseY());
-	displayText(-1.f, 0.96f, 1.f, 0.f, 0.f, mouseText);
-	displayText(-1.f, 0.90f, 1.f, 0.f, 0.f, fps);
+
+	displayText(-1.f, 0.96f, 1.f, 1.f, 1.f, "Controls:");
+	displayText(-1.f, 0.90f, 1.f, 0.f, 0.f, "  WASD QE - Move");
+	displayText(-1.f, 0.84f, 1.f, 0.f, 0.f, "  O - toggle some models on/off (affects performance)");
+	displayText(-1.f, 0.78f, 1.f, 0.f, 0.f, "  L - toggle outside light on/off");
+	displayText(-1.f, 0.72f, 1.f, 0.f, 0.f, "  P - open/close door");
+	displayText(-1.f, 0.66f, 1.f, 0.f, 0.f, "  K - Display additional data");
+	displayText(-1.f, 0.60f, 1.f, 0.f, 0.f, "  Esc - Exit");
+	if (displayData) {
+		//char hmm[] = "X/Y/Z:" + to_string(Camera.position.x);
+		sprintf_s(mouseText, "X/Y/Z: %4.2f , %4.2f , %4.2f", Camera.position.x, Camera.position.y, Camera.position.z);
+		displayText(0.f, 0.90f, 1.f, 0.f, 0.f, mouseText);
+		displayText(0.f, 0.96f, 1.f, 0.f, 0.f, fps);
+	}
 }
 
 // Renders text to screen. Must be called last in render function (before swap buffers)

@@ -26,3 +26,15 @@ void Lights::calculate(float dt) {
 	}
 
 }
+
+
+void Lights::changeOutsideLight() {
+	if (outsidelight == true) {
+		outsidelight = false;
+		glDisable(GL_LIGHT2);
+	}
+	else {
+		outsidelight = true; 
+		glEnable(GL_LIGHT2);
+	}
+}

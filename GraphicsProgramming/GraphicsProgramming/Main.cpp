@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 	//glutInitWindowPosition(100, 100);
 	glutInitWindowSize(1280, 720);
 	glutCreateWindow("Snow Cottage");
-	//glutFullScreen();
+	glutFullScreen();
 
 	// Register callback functions for change in size and rendering.
 	glutDisplayFunc(renderScene);
