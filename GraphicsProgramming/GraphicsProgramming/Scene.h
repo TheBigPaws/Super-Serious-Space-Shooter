@@ -77,6 +77,7 @@ protected:
 	Door Door;
 	bool displayAll = true;
 	bool displayData = false;
+	bool Wireframe = false;
 };
 
 #endif

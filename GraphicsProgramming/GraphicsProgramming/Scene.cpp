@@ -47,11 +47,24 @@ void Scene::handleInput(float dt)
 		else { displayAll = true; }
 		input->setKeyUp('o');
 	}
-	if (input->isKeyDown('k')) {
+	if (input->isKeyDown('i')) {
 		if (displayData == true) {
 			displayData = false;
 		}
 		else { displayData = true; }
+		input->setKeyUp('i');
+	}
+	if (input->isKeyDown('k')) {
+		if (Wireframe == true) {
+			Wireframe = false;
+			glPolygonMode(GL_FRONT, GL_FILL);
+			glPolygonMode(GL_BACK, GL_FILL);
+		}
+		else { 
+			Wireframe = true; 
+			glPolygonMode(GL_FRONT, GL_LINE); 
+			glPolygonMode(GL_BACK, GL_LINE);
+		}
 		input->setKeyUp('k');
 	}
 }
@@ -83,7 +96,9 @@ void Scene::render() {
 	
 	Lights.renderLights();
 
-	skybox.RenderSBOX(Camera.position.x, Camera.position.y, Camera.position.z);
+	if (!Wireframe) {
+		skybox.RenderSBOX(Camera.position.x, Camera.position.y, Camera.position.z);
+	}
 
 	BuildingFunctions::makeTextRect(Vector3(-20.0f, 0.0f, -35.0f), Vector3(-20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, 20.0f), Vector3(20.0f, 0.0f, -35.0f), Vector3(0.0f, 1.0f, 0.0f), 10.0f, 10.0f, snowTexture);
 
@@ -176,8 +191,9 @@ void Scene::renderTextOutput()
 	displayText(-1.f, 0.84f, 1.f, 0.f, 0.f, "  O - toggle some models on/off (affects performance)");
 	displayText(-1.f, 0.78f, 1.f, 0.f, 0.f, "  L - toggle outside light on/off");
 	displayText(-1.f, 0.72f, 1.f, 0.f, 0.f, "  P - open/close door");
-	displayText(-1.f, 0.66f, 1.f, 0.f, 0.f, "  K - Display additional data");
-	displayText(-1.f, 0.60f, 1.f, 0.f, 0.f, "  Esc - Exit");
+	displayText(-1.f, 0.66f, 1.f, 0.f, 0.f, "  I - Display additional data");
+	displayText(-1.f, 0.60f, 1.f, 0.f, 0.f, "  K - toggle wireframe mode on/off");
+	displayText(-1.f, 0.54f, 1.f, 0.f, 0.f, "  Esc - Exit");
 	if (displayData) {
 		//char hmm[] = "X/Y/Z:" + to_string(Camera.position.x);
 		sprintf_s(mouseText, "X/Y/Z: %4.2f , %4.2f , %4.2f", Camera.position.x, Camera.position.y, Camera.position.z);

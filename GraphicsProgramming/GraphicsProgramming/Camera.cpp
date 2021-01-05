@@ -48,19 +48,19 @@ void Camera::InputMovement(Input& input, float dt, int width, int height) {
 	if (input.isKeyDown('q')) {
 		moveUp(dt, 10);
 	}
-	else if (input.isKeyDown('e')) {
+	if (input.isKeyDown('e')) {
 		moveUp(dt, -10);
 	}
 	if (input.isKeyDown('w')) {
 		moveForward(dt, 10);
 	}
-	else if (input.isKeyDown('s')) {
+	if (input.isKeyDown('s')) {
 		moveForward(dt, -10);
 	}
 	if (input.isKeyDown('a')) {
 		moveSide(dt, -10);
 	}
-	else if (input.isKeyDown('d')) {
+	if (input.isKeyDown('d')) {
 		moveSide(dt, 10);
 	}
 
