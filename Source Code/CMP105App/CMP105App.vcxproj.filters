@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{f2badd73-2c61-4d1a-996c-51af9b66bfe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{48476511-6326-4d63-8de5-95fb2829a875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{eb4e0a23-7efa-4224-bbd3-5226fc691c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pickups n Upgrades">
+      <UniqueIdentifier>{92d075a6-e0f7-4da7-9056-13f6b0de5c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screens">
+      <UniqueIdentifier>{a97e1a48-73fa-4709-8c45-16138666a0ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bullets, Effects">
+      <UniqueIdentifier>{768f5f97-a995-48cb-8260-587c12b3ae8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Animation.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Collision.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameState.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Input.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\TileMap.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Vector.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\AudioManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\MusicObject.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SoundObject.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameObject.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Ufo.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_TNT.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Elon_Guard.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BOSS_Musk.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Bullets, Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Bullets, Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Bullets, Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Granade.cpp">
+      <Filter>Bullets, Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Pickup_Upgrade.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Pickup_Heal.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrade_Att_Dmg.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrade_Max_Hp.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrade_Att_Speed.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen_Upgrade.cpp">
+      <Filter>Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrade_Shot_Nr.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen_MMenu.cpp">
+      <Filter>Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen_GameOver.cpp">
+      <Filter>Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Pickup_Shield.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClCompile>
+    <ClCompile Include="StarrySky.cpp">
+      <Filter>Bullets, Effects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt">
+      <Filter>Framework</Filter>
+    </Text>
+    <Text Include="DO_NOT_EDIT.txt">
+      <Filter>Framework</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Framework\Animation.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Collision.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameState.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Input.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\TileMap.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Vector.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\AudioManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\MusicObject.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SoundObject.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameObject.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Ufo.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_TNT.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Elon_Guard.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BOSS_Musk.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Bullets, Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Bullets, Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Bullets, Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Granade.h">
+      <Filter>Bullets, Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Pickup_Upgrade.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Pickup_Heal.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade_Att_Dmg.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade_Max_Hp.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade_Att_Speed.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen_Upgrade.h">
+      <Filter>Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade_Shot_Nr.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen_MMenu.h">
+      <Filter>Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen_GameOver.h">
+      <Filter>Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Pickup_Shield.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>Pickups n Upgrades</Filter>
+    </ClInclude>
+    <ClInclude Include="StarrySky.h">
+      <Filter>Bullets, Effects</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
